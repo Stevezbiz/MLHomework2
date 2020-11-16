@@ -81,19 +81,9 @@ class Caltech(VisionDataset):
         Returns:
             tuple: (sample, target) where target is class_index of the target class.
         '''
-        path, target = self.samples[index]
-        sample = pil_loader(path)
-        if self.transform is not None:
-            sample = self.transform(sample)
-        return sample, target
-        image, label = ... # Provide a way to access image and label via index
-                           # Image should be a PIL Image
-                           # label can be int
-
-        # Applies preprocessing when accessing the image
+        image, label = self.samples[index]
         if self.transform is not None:
             image = self.transform(image)
-
         return image, label
 
     def __len__(self):
